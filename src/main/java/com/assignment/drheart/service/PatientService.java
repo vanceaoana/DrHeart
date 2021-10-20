@@ -5,12 +5,15 @@ import com.assignment.drheart.config.MapperUtil;
 import com.assignment.drheart.entity.PatientEntity;
 import com.assignment.drheart.repository.PatientRepository;
 import com.github.dozermapper.core.Mapper;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,12 +32,19 @@ public class PatientService {
         return mapper.map(patientRepository.getById(id), Patient.class);
     }
 
-    public List<Patient> getAllPatients(){
-        List<PatientEntity> patientEntities = patientRepository.findAll();
+    public List<Patient> getAllPatients(String sortBy,String query){
+        List<PatientEntity> patientEntities = null;
+        if (!StringUtils.isEmpty(query)){
+            patientEntities = patientRepository.findByLastNameContainsOrFirstNameContains(query,query);
+        } else {
+            if ("firstName".equals(sortBy)) {
 
-        if (CollectionUtils.isEmpty(patientEntities)){
-            throw new EntityNotFoundException();
+                patientEntities = patientRepository.findByOrderByFirstNameAsc();
+            } else {
+                patientEntities = patientRepository.findByOrderByLastNameAsc();
+            }
         }
+
         return patientEntities.stream()
                 .map(patientEntity -> mapper.map(patientEntity, Patient.class))
                 .collect(Collectors.toList());

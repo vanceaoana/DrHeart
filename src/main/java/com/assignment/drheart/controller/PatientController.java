@@ -35,8 +35,8 @@ public class PatientController {
     }
 
     @GetMapping("/list")
-    public List<Patient> getAllPatients(){
-        return patientService.getAllPatients();
+    public List<Patient> getAllPatients(@RequestParam(required = false) String sortBy, @RequestParam(required = false) String query){
+        return patientService.getAllPatients(sortBy,query);
     }
 
     @PutMapping
