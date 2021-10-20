@@ -1,7 +1,6 @@
 package com.assignment.drheart.business;
 
 import com.assignment.drheart.entity.Gender;
-import com.assignment.drheart.entity.MedicationEntity;
 import com.assignment.drheart.util.Over18;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -12,13 +11,9 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import javax.validation.constraints.PastOrPresent;
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
-
 
 @Data
 public class Patient {

@@ -1,7 +1,6 @@
 package com.assignment.drheart.entity;
 
 import lombok.Data;
-import lombok.Generated;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -42,7 +41,7 @@ public class PatientEntity {
     @Column(name = "modification_date")
     private LocalDateTime modificationDate;
 
-    @OneToMany(mappedBy = "patientId",cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "patientId", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<MedicationEntity> medicationEntityList;
 
 }

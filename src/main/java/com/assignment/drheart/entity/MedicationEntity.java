@@ -3,7 +3,6 @@ package com.assignment.drheart.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
