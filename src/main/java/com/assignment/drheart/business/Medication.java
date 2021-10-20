@@ -13,6 +13,7 @@ import lombok.Data;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -38,6 +39,7 @@ public class Medication {
 
     private Integer id;
     private Integer patientId;
+    @Size(min=3)
     private String description;
     @Positive
     private Float dosage;

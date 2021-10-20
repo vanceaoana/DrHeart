@@ -13,7 +13,7 @@ CREATE TABLE Patient (
 
 CREATE TABLE Medication (
                          id INT AUTO_INCREMENT  PRIMARY KEY,
-                         patient_id INT NOT NULL,
+                         patient_id INT NOT NULL CONSTRAINT `medication_mdfk_1` REFERENCES Patient (id),
                          description VARCHAR(250) NOT NULL,
                          dosage FLOAT NOT NULL,
                          unit VARCHAR NOT NULL,

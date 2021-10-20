@@ -19,6 +19,7 @@ public class MedicationEntity {
     private Integer patientId;
     private String description;
     private float dosage;
+    @Enumerated(EnumType.STRING)
     private Unit unit;
     private LocalTime time;
     @Column(name = "creation_date")

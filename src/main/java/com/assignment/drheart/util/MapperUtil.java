@@ -1,4 +1,4 @@
-package com.assignment.drheart.config;
+package com.assignment.drheart.util;
 
 import com.github.dozermapper.core.DozerBeanMapperBuilder;
 import com.github.dozermapper.core.Mapper;

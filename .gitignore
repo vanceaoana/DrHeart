@@ -16,6 +16,7 @@ target/
 ### IntelliJ IDEA ###
 .idea
 .mvn
+src/main/resources/application-default.yml
 *.iws
 *.iml
 *.ipr
