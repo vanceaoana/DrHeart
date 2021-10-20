@@ -28,17 +28,6 @@ public class MedicationService {
         return mapper.mapList(medicationRepository.getByPatientId(id), Medication.class);
     }
 
-    public List<Medication> getAllMedications() {
-        List<MedicationEntity> medicationEntities = medicationRepository.findAll();
-
-        if (CollectionUtils.isEmpty(medicationEntities)) {
-            throw new EntityNotFoundException();
-        }
-        return medicationEntities.stream()
-                .map(medicationEntity -> mapper.map(medicationEntity, Medication.class))
-                .collect(Collectors.toList());
-    }
-
     @Transactional
     public List<Medication> createMedication(Integer patientId, List<Medication> medicationList) {
 

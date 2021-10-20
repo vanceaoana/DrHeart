@@ -41,7 +41,7 @@ public class PatientEntity {
     @Column(name = "modification_date")
     private LocalDateTime modificationDate;
 
-    @OneToMany(mappedBy = "patientId", cascade = CascadeType.REMOVE, orphanRemoval = true)
-    private List<MedicationEntity> medicationEntityList;
+    @OneToMany(mappedBy = "patientId", cascade = CascadeType.REMOVE)
+    private List<MedicationEntity> medicationList;
 
 }
